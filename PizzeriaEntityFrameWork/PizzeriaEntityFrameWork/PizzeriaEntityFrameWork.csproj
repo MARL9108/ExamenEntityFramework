@@ -80,6 +80,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\IUnitOfWork.cs" />
+    <Compile Include="Models\PaginationPizza.cs" />
     <Compile Include="Models\Pizza.cs" />
     <Compile Include="Models\Pizza_Ingredient.cs" />
     <Compile Include="Models\PizzeriaContext.cs" />
