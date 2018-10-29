@@ -13,10 +13,10 @@ namespace PizzeriaEntityFrameWork.Models
 
         public static IEnumerable<Pizza> Page<Pizza>(this IEnumerable<Pizza> source)
         {
+            
             var page = Convert.ToInt32(ConfigurationManager.AppSettings["page"]);
             var pageSize= Convert.ToInt32(ConfigurationManager.AppSettings["pageSize"]);
-            return source.Skip((page - 1) * pageSize).Take(pageSize);
-            
+            return source.Skip((page - 1) * pageSize).Take(pageSize); 
         }
     }
 }
