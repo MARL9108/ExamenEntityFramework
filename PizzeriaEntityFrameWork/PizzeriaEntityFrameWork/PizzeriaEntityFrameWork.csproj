@@ -43,6 +43,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -53,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\PizzaRespository.cs" />
     <Compile Include="Migrations\201810290804147_PizzaIngredients.cs" />
     <Compile Include="Migrations\201810290804147_PizzaIngredients.Designer.cs">
       <DependentUpon>201810290804147_PizzaIngredients.cs</DependentUpon>
@@ -86,10 +88,12 @@
     <Compile Include="Models\PizzeriaContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IIngredientsRepository.cs" />
-    <Compile Include="Repository\IngredientRepository.cs" />
+    <Compile Include="Repository\IDbContext.cs" />
+    <Compile Include="Repository\IIngredientsRespository.cs" />
+    <Compile Include="Repository\IngredientsRepository.cs" />
     <Compile Include="Repository\IPizzaRepository.cs" />
-    <Compile Include="Repository\PizzaRepository.cs" />
+    <Compile Include="Repository\IPizzeriaContext.cs" />
+    <Compile Include="Repository\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

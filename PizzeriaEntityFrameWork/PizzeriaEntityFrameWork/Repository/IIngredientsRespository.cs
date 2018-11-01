@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PizzeriaEntityFrameWork.Repository
 {
-    public interface IPizzaRepository:IRepository<Pizza>
+    public interface IIngredientsRepository:IRepository<Ingredient>
     {
     }
 }

@@ -13,19 +13,10 @@ namespace PizzeriaEntityFrameWork.Models
         public int PizzaId { get; set; }
         public int IngredientId { get; set; }
 
-        public Pizza Pizza { get; set; }
-        public List<Ingredient> Ingredients { get; set; }
+        public virtual Pizza Pizza { get; set; }
+        public virtual ICollection<Ingredient> Ingredients { get; set; }
 
-        public decimal PriceTotal
-        {
-            get
-            {
-                var profit = Convert.ToDecimal( ConfigurationManager.AppSettings["benefict"]);
-                var Price = (Pizza.Ingredients.Sum(x => x.Price))*profit;
-                var TotalPrice = Price * IngredientAmount;
-                return TotalPrice;
-            }
-        }
+       
         public int IngredientAmount
         {
             get
