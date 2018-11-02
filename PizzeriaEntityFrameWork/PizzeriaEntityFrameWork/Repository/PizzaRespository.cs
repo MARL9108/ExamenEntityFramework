@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace PizzeriaEntityFrameWork.Infrastructure
 {
-    class PizzaRespository: DbContext,IPizzaRepository
+    class PizzaRespository: DbContext, IRepository<Pizza>
     {
         private IPizzeriaContext _context;
         public PizzaRespository(IPizzeriaContext context)
@@ -21,13 +21,8 @@ namespace PizzeriaEntityFrameWork.Infrastructure
         {
             _context.Pizza.Add(entity);
         }
-        public void Delete(Pizza entity)
+        public void GetAll(Pizza entity)
         {
-            _context.Pizza.Remove(entity);
-        }
-        public void Update(Pizza entity)
-        {
-            var result = _context.Pizza.SingleOrDefault(x=>x.PizzaId==entity.PizzaId);
             
         }
     }

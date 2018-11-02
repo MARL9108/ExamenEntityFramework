@@ -4,18 +4,24 @@
     using System.Data.Entity;
     using System.Linq;
     using System.Data.Entity.ModelConfiguration.Conventions;
+    using PizzeriaEntityFrameWork.Repository;
 
-    public class PizzeriaContext : DbContext, IUnitOfWork
+    public class PizzeriaContext : DbContext
     {
-        public DbSet<Pizza> Pizza { get; set; }
-        public DbSet<Ingredient> Ingredient {get; set;}
+        public IDbSet<Pizza> Pizza { get; set; }
+        public IDbSet<Ingredient> Ingredient {get; set;}
 
-        public PizzeriaContext()
-            : base("name=PizzeriaContext")
+        public PizzeriaContext(): base("name=PizzeriaContext")
         {
         }
-
-
+        public void Commit()
+        {
+            base.SaveChanges();
+        }
+        public void Rollback ()
+        {
+            base.ChangeTracker.Entries().ToList().ForEach(x => x.State = EntityState.Unchanged);
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -25,18 +31,8 @@
             modelBuilder.Entity<Pizza>().Property(x => x.Name)
                                         .IsRequired()
                                         .HasMaxLength(50);
-            //modelBuilder.Entity<Pizza_Ingredient>().Property(x=>x.PriceTotal)
-                                                   
             #endregion
-            #region Ingredient
-            modelBuilder.Entity<Ingredient>().Property(x => x.IngredientId)
-                                             .IsRequired();
-            modelBuilder.Entity<Ingredient>().Property(x => x.Name)
-                                             .IsRequired()
-                                             .HasMaxLength(50);
-            modelBuilder.Entity<Ingredient>().Property(x => x.Price)
-                                             .IsRequired();
-            #endregion
+            
            
         }
 
