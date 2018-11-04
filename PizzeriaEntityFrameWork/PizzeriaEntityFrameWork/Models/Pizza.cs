@@ -12,13 +12,15 @@ namespace PizzeriaEntityFrameWork.Models
     {
         public int PizzaId { get; set; }
         public string Name { get; set; }
+        public byte[] Photo { get; set; }
 
         public virtual ICollection<Ingredient> Ingredients { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
         public decimal Price()
         {
-            var profit = Convert.ToDecimal(ConfigurationManager.AppSettings["benefict"]);
-            var Price = Ingredients.Sum(x => x.Price) * profit;
+            var profit = Convert.ToDecimal(ConfigurationManager.AppSettings["Profit"]);
+            var Price = Ingredients.Sum(x => x.Price) + profit;
             return Price;
         }
     }

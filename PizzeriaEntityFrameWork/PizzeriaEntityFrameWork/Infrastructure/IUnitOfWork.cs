@@ -13,9 +13,5 @@ namespace PizzeriaEntityFrameWork.Models
         IDbSet<T> Pizza { get; set; }
         void Commit();
         void Rollback();
-        /*int SaveChanges();
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
-        Task<int> SaveChangesAsync();*/
-
     }
 }

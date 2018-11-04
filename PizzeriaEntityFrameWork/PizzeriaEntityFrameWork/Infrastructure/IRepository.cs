@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace PizzeriaEntityFrameWork.Repository
 {
-    public interface IRepository<T>:IRepositoryAdd<T>,IRepositoryGetAll<T> where T:class
+    public interface IRepository<T>:IRepositoryAdd<T>,IRepositoryGetAll<T>,IGetById<T> where T:class
     {
+    }
+
+    public interface IGetById<T> where T : class
+    {
+        T GetById(T entity);
     }
 
     public interface IRepositoryGetAll<T> where T : class
     {
-        void GetAll(T entity);
+        IEnumerable<T>GetAll();
     }
 
     public interface IRepositoryAdd<T> where T:class

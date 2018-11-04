@@ -21,6 +21,7 @@ namespace PizzeriaEntityFrameWork.Migrations
 
         protected override void Seed(PizzeriaContext context)
         {
+            #region Load_Ingredients
             if (!context.Ingredient.Any())
             {
                 context.Ingredient.AddOrUpdate(
@@ -31,35 +32,9 @@ namespace PizzeriaEntityFrameWork.Migrations
                     new Ingredient { IngredientId = 5, Name = "Piña", Price = 1M }
                     );
             }
-            #region Prueba
-            /*var resourceName = "PizzeriaEntityFrameWork.SeedData.Ingredients.csv";
-            var assembly = Assembly.GetExecutingAssembly();
-            var stream = assembly.GetManifestResourceStream(resourceName);
-            var xml = XDocument.Load(stream);
-            var ingredients = xml.Element("Ingredients")
-                                 .Elements("Ingredient")
-                                 .Select(x => new Ingredient
-                                 {
-                                     Name = (string)x.Element("Name"),
-                                 }).ToArray();
-            context.Ingredient.AddOrUpdate(c => c.Name, ingredients);
-            
-            Assembly assembly = Assembly.GetExecutingAssembly();
-             string resourceName = "PizzeriaEntityFrameWork.SeedData.Ingredients.csv";
-             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-             {
-                 using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                 {
-                     CsvReader csvReader = new CsvReader(reader);
-                     //csvReader.Configuration.WillThrowOnMissingField = false;
-                     var records = csvReader.GetRecords<Ingredient>().ToArray();
-                     foreach (Ingredient record in records)
-                     {
-                         context.Ingredient.AddOrUpdate(record);
-                     }
-                 }*/
             #endregion
+           
         }
     }
-    }
+ }
 

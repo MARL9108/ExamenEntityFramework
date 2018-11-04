@@ -14,6 +14,7 @@ namespace PizzeriaEntityFrameWork.Models
         public string Name { get; set; }
         public decimal Price { get; set; }
 
-        public virtual ICollection<Pizza> Pizzas { get; set; }
+        public int PizzaId { get; set; }
+        public virtual Pizza Pizza { get; set; }
     }
 }

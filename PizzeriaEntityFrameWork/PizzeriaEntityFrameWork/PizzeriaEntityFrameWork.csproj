@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Repository\PizzaRespository.cs" />
     <Compile Include="Migrations\201810290804147_PizzaIngredients.cs" />
     <Compile Include="Migrations\201810290804147_PizzaIngredients.Designer.cs">
@@ -86,7 +87,6 @@
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Models\Pizza.cs" />
-    <Compile Include="Models\Pizza_Ingredient.cs" />
     <Compile Include="Models\PizzeriaContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

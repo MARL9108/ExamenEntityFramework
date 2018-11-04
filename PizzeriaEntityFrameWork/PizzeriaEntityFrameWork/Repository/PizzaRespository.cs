@@ -21,9 +21,13 @@ namespace PizzeriaEntityFrameWork.Infrastructure
         {
             _context.Pizza.Add(entity);
         }
-        public void GetAll(Pizza entity)
+        public IEnumerable<Pizza> GetAll()
         {
-            
+            return _context.Pizza.AsEnumerable<Pizza>();
+        }
+        public Pizza GetById(Pizza pizza)
+        {
+            return _context.Pizza.Find(pizza.PizzaId);
         }
     }
 }

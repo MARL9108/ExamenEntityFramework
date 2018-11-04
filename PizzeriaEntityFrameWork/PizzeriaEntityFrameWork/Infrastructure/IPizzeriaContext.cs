@@ -8,7 +8,7 @@ using PizzeriaEntityFrameWork.Models;
 
 namespace PizzeriaEntityFrameWork.Repository
 {
-    public interface IPizzeriaContext:IUnitOfWork<Pizza>
+    public interface IPizzeriaContext:IUnitOfWork<Pizza>, IDisposable
     {
     }
 }
